@@ -1,0 +1,643 @@
+/* Core Reset */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Inter', sans-serif;
+    color: #e0e0e0;
+    background-color: #000;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease-out;
+}
+
+#loading-screen img {
+    max-width: 60%;
+    height: auto;
+    /* border-radius: 12px; No border for logo usually looks better */
+    filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.4));
+    animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#loading-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #888;
+    animation: pulse 1.5s infinite;
+}
+
+/* Login Screen */
+#login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use the uploaded background image */
+    background-image: url('../../assets/login_bg_new.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 9998;
+    display: flex;
+    /* Align form to the left side as per mockup space */
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 10%;
+    /* Adjust this to match the "gap" in the image */
+}
+
+#login-form {
+    background: transparent;
+    /* No background logic, sit on image */
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 350px;
+    /* Slightly wider */
+}
+
+#login-form h1 {
+    font-size: 2rem;
+    color: #4a90e2;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 10px rgba(74, 144, 226, 0.3);
+}
+
+.login-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.login-tab {
+    flex: 1;
+    padding: 10px;
+    background: rgba(13, 27, 42, 0.6);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    color: #888;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.login-tab:hover {
+    color: #fff;
+    background: rgba(13, 27, 42, 0.8);
+}
+
+.login-tab.active {
+    background: #4a90e2;
+    border-color: #4a90e2;
+    color: white;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.role-form {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.role-form.active {
+    display: flex;
+}
+
+.login-label {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    /* Text color from mockup seems dark/black? or maybe orange? Using dark for contrast against yellow bg if transparent, or check image. */
+    /* Looking at image: Text is Black/Dark. Background is yellow/orange pattern. */
+    color: #000;
+    font-weight: 600;
+    margin-bottom: -10px;
+    /* Pull input closer */
+    margin-left: 5px;
+}
+
+.login-input {
+    padding: 15px;
+    /* Mockup has dark blue/black input bars */
+    background: #0d1b2a;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    /* Rounded corners */
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.login-input:focus {
+    border: 2px solid #4a90e2;
+}
+
+#login-form .login-btn {
+    margin-top: 5px;
+    padding: 15px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#login-form .login-btn:hover {
+    background: #569ff5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(74, 144, 226, 0.4);
+}
+
+/* Hide original shared button */
+#login-btn {
+    display: none;
+}
+
+
+/* Skin Selection */
+#skin-selection .skin-options {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.skin-option {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid rgba(13, 27, 42, 0.8);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #0d1b2a;
+}
+
+.skin-option:hover {
+    transform: scale(1.15);
+}
+
+.skin-option.selected {
+    border-color: #fff;
+    box-shadow: 0 0 0 3px #4a90e2;
+    transform: scale(1.15);
+}
+
+/* Character Selection */
+#character-selection {
+    margin-top: 10px;
+}
+
+#character-selection h3 {
+    color: #000;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#character-options {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.character-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba(13, 27, 42, 0.7);
+    border-radius: 12px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.character-option:hover {
+    transform: translateY(-3px);
+    border-color: rgba(74, 144, 226, 0.5);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.character-option.selected {
+    border-color: #4a90e2;
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.5);
+    background: rgba(74, 144, 226, 0.2);
+}
+
+.character-canvas {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    width: 64px;
+    height: 64px;
+}
+
+.character-option span {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.character-option.selected span {
+    color: #4a90e2;
+}
+
+/* Room Info UI (In-Game) */
+#room-info-ui {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.room-info-card {
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(8px);
+    border-left: 4px solid #4a90e2;
+    border-radius: 8px;
+    padding: 10px 18px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+#room-display-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+#room-display-code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #4a90e2;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Main Layout */
+#game-container {
+    flex-grow: 1;
+    position: relative;
+    background-color: #000;
+}
+
+/* Chat Interface Final (Restored Tabs) */
+#chat-interface-final {
+    width: 320px;
+    height: 100vh;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #333;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    /* Increased Z-Index to stay on top */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+    position: relative;
+    /* Ensure it stays in flow */
+    font-family: 'Inter', sans-serif;
+}
+
+/* Tabs */
+#chat-tabs {
+    display: flex;
+    padding: 10px;
+    background: #252525;
+    border-bottom: 1px solid #333;
+    gap: 10px;
+}
+
+.chat-tab {
+    position: relative;
+    flex: 1;
+    padding: 8px 12px;
+    text-align: center;
+    cursor: pointer;
+    background: #333;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #aaa;
+    transition: all 0.2s;
+    user-select: none;
+    font-weight: 600;
+}
+
+.chat-tab.unread::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: #ff5555;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #ff5555;
+}
+
+.chat-tab:hover {
+    background: #444;
+    color: #fff;
+}
+
+.chat-tab.active {
+    background: #4a90e2;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Views */
+.chat-view {
+    display: none;
+    flex-grow: 1;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.chat-view.active {
+    display: flex;
+}
+
+/* Global Specifics */
+.pinned-header {
+    background: #252525;
+    color: #4a90e2;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: pre-wrap;
+    /* Allows multiline text (\n) */
+    line-height: 1.4;
+}
+
+/* Private Specifics */
+.player-list-container {
+    border-bottom: 1px solid #333;
+    background: #111;
+    max-height: 150px;
+    /* Limit height so history is visible */
+    display: flex;
+    flex-direction: column;
+}
+
+.list-header {
+    padding: 8px 12px;
+    background: #222;
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#active-players-list {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.player-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #222;
+    transition: background 0.1s;
+}
+
+.player-item:hover {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+.player-item.selected {
+    background: rgba(74, 144, 226, 0.2);
+    color: #4a90e2;
+    font-weight: 600;
+    border-left: 3px solid #4a90e2;
+}
+
+.player-item::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #555;
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.player-item.selected::before {
+    background-color: #4a90e2;
+    box-shadow: 0 0 5px #4a90e2;
+}
+
+/* History & Bubbles */
+.chat-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #1a1a1a;
+}
+
+/* Keep modern bubble styles */
+.msg-bubble {
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 90%;
+    margin-bottom: 2px;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.msg-bubble.received {
+    background: #2a2a2a;
+    color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    border-left: 3px solid #666;
+}
+
+.msg-bubble.sent {
+    background: #4a90e2;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    border-right: 3px solid #4a90e2;
+}
+
+.msg-bubble.system {
+    align-self: center;
+    background: #333;
+    color: #ccc;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    padding: 4px 12px;
+    border: 1px solid #444;
+    text-align: center;
+    max-width: 100%;
+}
+
+.msg-sender {
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    display: block;
+    opacity: 0.7;
+}
+
+.msg-bubble.sent .msg-sender {
+    text-align: right;
+    color: #cceeff;
+}
+
+/* Input */
+#chat-input-area {
+    padding: 15px;
+    background: #252525;
+    border-top: 1px solid #333;
+}
+
+#chat-input-final {
+    width: 100%;
+    padding: 12px;
+    /* Slightly boxier */
+    box-sizing: border-box;
+    background: #1a1a1a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+#chat-input-final:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Interaction Prompt (Keep this!) */
+#interaction-prompt-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.interaction-prompt {
+    position: absolute;
+    background: rgba(13, 27, 42, 0.95);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 2px solid #4a90e2;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    text-align: center;
+    white-space: nowrap;
+    animation: promptPulse 2s ease-in-out infinite;
+}
+
+.interaction-prompt .key-hint {
+    display: inline-block;
+    background: #4a90e2;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+@keyframes promptPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(74, 144, 226, 0.6);
+
+    }
+}

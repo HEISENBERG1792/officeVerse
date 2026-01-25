@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OfficeVerse</title>
+    <link rel="stylesheet" href="./src/styles/ui.css?v=final_fix">
+    <script type="module" src="./src/main.js?v=final_fix"></script>
+</head>
+
+<body>
+    <!-- Loading Screen / Splash Screen -->
+    <div id="loading-screen">
+        <img src="./assets/logo.png" alt="OfficeVerse" id="splash-logo">
+        <div id="loading-text">Loading...</div>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" style="display: none;">
+        <div id="login-form">
+            <h1>Office Verse</h1>
+
+            <div class="login-tabs">
+                <button class="login-tab active" data-role="boss">Boss (Create Office)</button>
+                <button class="login-tab" data-role="employee">Employee (Join Office)</button>
+            </div>
+
+            <!-- Boss Form -->
+            <div id="boss-form" class="role-form active">
+                <label class="login-label">Enter Your Name:</label>
+                <input type="text" id="boss-name" class="login-input" maxlength="12" required>
+
+                <label class="login-label">Enter Office Name:</label>
+                <input type="text" id="office-name" class="login-input" maxlength="20" placeholder="E.g. Sales Team">
+
+                <button id="create-office-btn" class="login-btn">Create Office</button>
+            </div>
+
+            <!-- Employee Form -->
+            <div id="employee-form" class="role-form">
+                <label class="login-label">Enter Your Name:</label>
+                <input type="text" id="employee-name" class="login-input" maxlength="12" required>
+
+                <label class="login-label">Enter Office Code:</label>
+                <input type="text" id="join-code" class="login-input" maxlength="6" style="text-transform: uppercase;"
+                    placeholder="6-digit code">
+
+                <button id="join-office-btn" class="login-btn">Join Office</button>
+            </div>
+
+            <!-- Character Selection with Animated Canvas -->
+            <div id="character-selection">
+                <h3>Choose Character</h3>
+                <div id="character-options">
+                    <div class="character-option selected" data-character="owlet">
+                        <canvas class="character-canvas" id="canvas-owlet" width="64" height="64"></canvas>
+                        <span>Owlet</span>
+                    </div>
+                    <div class="character-option" data-character="dude">
+                        <canvas class="character-canvas" id="canvas-dude" width="64" height="64"></canvas>
+                        <span>Dude</span>
+                    </div>
+                    <div class="character-option" data-character="pink">
+                        <canvas class="character-canvas" id="canvas-pink" width="64" height="64"></canvas>
+                        <span>Pink</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skin Selection -->
+            <div id="skin-selection">
+                <label class="login-label">Select Your Color:</label>
+                <div class="skin-options">
+                    <div class="skin-option selected" style="background-color: #ffffff;" data-color="0xffffff"></div>
+                    <div class="skin-option" style="background-color: #ff5555;" data-color="0xff5555"></div>
+                    <div class="skin-option" style="background-color: #55ff55;" data-color="0x55ff55"></div>
+                    <div class="skin-option" style="background-color: #5555ff;" data-color="0x5555ff"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room Info UI -->
+    <div id="room-info-ui" style="display: none;">
+        <div class="room-info-card">
+            <span id="room-display-name">Office: Loading...</span>
+            <span id="room-display-code">Code: ------</span>
+        </div>
+    </div>
+
+    <!-- Chat Interface Final -->
+    <div id="chat-interface-final">
+        <div id="chat-tabs">
+            <div class="chat-tab active" data-tab="global">Global</div>
+            <div class="chat-tab" data-tab="private">Private</div>
+        </div>
+
+        <!-- Global Chat View -->
+        <div id="view-global" class="chat-view active">
+            <div class="pinned-header" id="global-header">
+                Office Code: ...
+            </div>
+            <div id="history-global" class="chat-history">
+                <div class="message system">Welcome to OfficeVerse!</div>
+            </div>
+        </div>
+
+        <!-- Private Chat View -->
+        <div id="view-private" class="chat-view">
+            <div class="player-list-container">
+                <div class="list-header">Select Player to Chat</div>
+                <div id="active-players-list">
+                    <div style="padding:10px; color:#666;">Waiting for players...</div>
+                </div>
+            </div>
+            <div id="history-private" class="chat-history">
+                <div class="message system">Select a player above or press 'E' near them to chat.</div>
+            </div>
+        </div>
+
+        <div id="chat-input-area">
+            <input id="chat-input-final" type="text" placeholder="Type a message..." maxlength="100">
+        </div>
+    </div>
+
+    <div id="game-container"></div>
+</body>
+
+</html>

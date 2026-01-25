@@ -1,0 +1,113 @@
+# OfficeVerse Frontend
+
+A multiplayer 2D office simulator built with Phaser 3.
+
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Create .env file
+cp .env.example .env
+
+# Start development server
+npm run dev
+```
+
+The game will open at `http://localhost:5173`
+
+## 📁 Project Structure
+
+```
+officeverse-frontend/
+├── public/
+│   ├── index.html
+│   └── assets/              # Game assets (tilesets, sprites, audio)
+├── src/
+│   ├── main.js             # Entry point
+│   ├── launcher/           # Pre-game UI scenes
+│   ├── game/               # Core game logic
+│   │   ├── scenes/         # Phaser scenes
+│   │   ├── entities/       # Player, NPC, RemotePlayer
+│   │   ├── ui/             # ChatBox, PlayerList, MiniMap
+│   │   ├── map/            # Tilemap loader
+│   │   └── input/          # Keyboard input
+│   ├── network/            # API & WebSocket clients
+│   ├── state/              # Global game state
+│   └── utils/              # Constants, helpers, config
+```
+
+## 🎮 Features
+
+- **Multiplayer**: Real-time player movement sync
+- **Chat System**: In-game text chat
+- **NPCs**: Interactive non-player characters
+- **Tilemap**: Custom office map built with Tiled
+- **UI**: Minimap, player list, chat box
+- **Networking**: WebSocket for real-time updates
+
+## 🔧 Configuration
+
+Edit `.env` to configure backend URLs:
+
+```env
+VITE_API_URL=http://localhost:3000
+VITE_WS_URL=ws://localhost:3000
+```
+
+## 🎨 Assets Required
+
+Place the following in `public/assets/`:
+
+### Tilesets
+- `tilesets/office_tileset.png` - Office tileset image
+
+### Maps
+- `maps/office_map.json` - Tiled JSON map export
+
+### Sprites
+- `sprites/Owlet_Monster_Idle_4.png` - Idle animation (32x32 frames)
+- `sprites/Owlet_Monster_Walk_6.png` - Walk animation (32x32 frames)
+
+### Audio (Optional)
+- `audio/walk.wav`
+- `audio/join.wav`
+- `audio/chat.wav`
+
+## 🎯 Controls
+
+- **WASD / Arrow Keys**: Move player
+- **E**: Interact with NPCs
+- **T**: Open chat
+- **ESC**: Pause menu
+- **Tab**: Toggle UI elements
+
+## 📦 Build
+
+```bash
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 🔗 Backend Integration
+
+This frontend connects to the OfficeVerse backend API:
+
+- REST API: Player auth, room management
+- WebSocket: Real-time movement, chat
+
+See backend repository for setup instructions.
+
+## 📝 License
+
+MIT
