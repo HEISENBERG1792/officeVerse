@@ -4,15 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>OfficeVerse</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="./src/styles/ui.css?v=fix_layout_v2">
     <link rel="stylesheet" href="./src/styles/executive_ui.css?v=fix_layout_v2">
     <script type="module" src="./src/main.js?v=fix_layout_v2"></script>
-=======
-    <link rel="stylesheet" href="./src/styles/ui.css?v=final_fix">
-    <link rel="stylesheet" href="./src/styles/executive_ui.css?v=final_fix">
-    <script type="module" src="./src/main.js?v=final_fix"></script>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
 </head>
 
 <body>
@@ -214,17 +208,11 @@
             <!-- Panel Content -->
             <div id="genai-panel-content">
                 <!-- Chat History -->
-<<<<<<< HEAD
                 <div id="genai-chat-history" class="genai-chat-history" role="log" aria-live="polite"
                     aria-label="Chat history">
                     <div class="genai-message system" role="status">
                         <strong>Welcome!</strong> I'm powered by Mistral AI. Ask me questions, get advice, or brainstorm
                         ideas!
-=======
-                <div id="genai-chat-history" class="genai-chat-history" role="log" aria-live="polite" aria-label="Chat history">
-                    <div class="genai-message system" role="status">
-                        <strong>Welcome!</strong> I'm powered by Mistral AI. Ask me questions, get advice, or brainstorm ideas!
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                     </div>
                 </div>
 
@@ -237,7 +225,6 @@
                 <!-- Input Area -->
                 <div id="genai-input-area" class="genai-input-area">
                     <div class="genai-input-wrapper">
-<<<<<<< HEAD
                         <input type="text" id="genai-input" class="genai-input-field"
                             placeholder="Ask me anything... (max 500 characters)" maxlength="500" autocomplete="off"
                             spellcheck="true" aria-label="Message input">
@@ -245,26 +232,6 @@
                     </div>
                     <button id="genai-send-btn" class="genai-send-button" title="Send message (Enter key works too)"
                         aria-label="Send message">
-=======
-                        <input 
-                            type="text" 
-                            id="genai-input" 
-                            class="genai-input-field"
-                            placeholder="Ask me anything... (max 500 characters)" 
-                            maxlength="500"
-                            autocomplete="off"
-                            spellcheck="true"
-                            aria-label="Message input"
-                        >
-                        <span id="genai-char-count" class="genai-char-count">0/500</span>
-                    </div>
-                    <button 
-                        id="genai-send-btn" 
-                        class="genai-send-button"
-                        title="Send message (Enter key works too)"
-                        aria-label="Send message"
-                    >
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                         <span class="genai-send-icon">→</span>
                         <span>Send</span>
                     </button>
@@ -310,12 +277,8 @@
                         <span class="terminal-status success">✓ System Ready</span>
                     </div>
                     <div class="terminal-line" style="margin: 15px 0;">
-<<<<<<< HEAD
                         <span
                             class="terminal-text-dim">════════════════════════════════════════════════════════════</span>
-=======
-                        <span class="terminal-text-dim">════════════════════════════════════════════════════════════</span>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                     </div>
                     <div class="terminal-line">
                         <span class="terminal-text-warning">⚠ AUTHORIZATION REQUIRED</span>
@@ -327,12 +290,8 @@
                         <span class="terminal-text-dim">Only Boss can authorize this configuration</span>
                     </div>
                     <div class="terminal-line" style="margin-top: 15px;">
-<<<<<<< HEAD
                         <span
                             class="terminal-text-dim">════════════════════════════════════════════════════════════</span>
-=======
-                        <span class="terminal-text-dim">════════════════════════════════════════════════════════════</span>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                     </div>
                 </div>
 
@@ -344,33 +303,16 @@
                     </div>
                     <div class="terminal-input-wrapper">
                         <span class="terminal-prompt-inline">> </span>
-<<<<<<< HEAD
                         <input type="password" id="genai-apikey-input" class="terminal-input-field" placeholder="sk-..."
                             autocomplete="off" aria-label="OpenAI API Key" spellcheck="false">
                         <button id="toggle-apikey-visibility" class="terminal-eye-btn"
                             title="Show/Hide API Key">👁</button>
-=======
-                        <input 
-                            type="password" 
-                            id="genai-apikey-input" 
-                            class="terminal-input-field"
-                            placeholder="sk-..." 
-                            autocomplete="off"
-                            aria-label="OpenAI API Key"
-                            spellcheck="false"
-                        >
-                        <button id="toggle-apikey-visibility" class="terminal-eye-btn" title="Show/Hide API Key">👁</button>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                     </div>
 
                     <!-- Terminal Commands -->
                     <div class="terminal-commands" style="margin-top: 15px;">
-<<<<<<< HEAD
                         <button id="validate-apikey-btn" class="terminal-cmd-btn validate-btn"
                             title="Validate the API key">
-=======
-                        <button id="validate-apikey-btn" class="terminal-cmd-btn validate-btn" title="Validate the API key">
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                             <span class="cmd-icon">→</span> validate
                         </button>
                         <button id="save-apikey-btn" class="terminal-cmd-btn save-btn" title="Save and activate">
@@ -382,12 +324,8 @@
                     </div>
 
                     <!-- Status Message -->
-<<<<<<< HEAD
                     <div id="apikey-status-message" class="terminal-status-line"
                         style="display: none; margin-top: 15px;"></div>
-=======
-                    <div id="apikey-status-message" class="terminal-status-line" style="display: none; margin-top: 15px;"></div>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                 </div>
 
                 <!-- Help Section (Collapsible) -->
@@ -396,12 +334,8 @@
                         <span class="terminal-text-info">ℹ HELP DOCUMENTATION</span>
                     </div>
                     <div class="terminal-line">
-<<<<<<< HEAD
                         <span class="terminal-text">1. Visit: <span
                                 class="terminal-link">https://platform.openai.com/api-keys</span></span>
-=======
-                        <span class="terminal-text">1. Visit: <span class="terminal-link">https://platform.openai.com/api-keys</span></span>
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
                     </div>
                     <div class="terminal-line">
                         <span class="terminal-text">2. Sign in to your OpenAI account</span>
