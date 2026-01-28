@@ -89,7 +89,6 @@ public class GenAIController {
             } else {
                 response.put("message", "API key validation failed");
             }
-
         } catch (Exception e) {
             response.put("success", false);
             response.put("valid", false);
@@ -135,13 +134,11 @@ public class GenAIController {
                 response.put("requiresConfig", true);
                 return response;
             }
-
             if (prompt == null || prompt.trim().isEmpty()) {
                 response.put("success", false);
                 response.put("error", "Prompt cannot be empty");
                 return response;
             }
-
             if (prompt.length() > 500) {
                 response.put("success", false);
                 response.put("error", "Prompt too long (max 500 characters)");
@@ -155,7 +152,6 @@ public class GenAIController {
             response.put("response", aiResponse);
             response.put("roomId", roomId);
             response.put("timestamp", System.currentTimeMillis());
-
         } catch (Exception e) {
             response.put("success", false);
             response.put("error", "Failed to process GenAI request: " + e.getMessage());
@@ -175,7 +171,6 @@ public class GenAIController {
         status.put("ready", genaiService.isConfigured());
         return status;
     }
-
     /**
      * Health check endpoint
      * GET /api/genai/health

@@ -28,8 +28,7 @@ public class GameController {
     @PostMapping("/update-position")
     public Position updatePosition(@RequestParam Long playerId, @RequestParam int x, @RequestParam int y) {
         Player player = playerService.getPlayer(playerId);
-        if (player == null)
-            return null;
+        if (player == null) return null;
         Position pos = new Position(x, y, player);
         return positionService.savePosition(pos);
     }
