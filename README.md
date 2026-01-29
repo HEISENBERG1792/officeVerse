@@ -1,10 +1,6 @@
 <div align="center">
 
-<<<<<<< HEAD
 ![OfficeVerse Hero Banner](assets/branding/officeverse_hero.png)
-=======
-![OfficeVerse Hero Banner](assets/branding/scene.gif)
->>>>>>> cad3fee031fe2c5684858949e36765bb75279aa2
 
 # 🏢 OfficeVerse
 
