@@ -135,7 +135,7 @@ Open `http://localhost:5173` and start your new work life! 🚀
 
 | Command | Action |
 |:---|:---|
-| `Arrows / WASD` | Navigate the OfficeVerse |
+| `Arrows | Navigate the OfficeVerse |
 | `F` | Interact with the World |
 | `E` | Chat with Colleagues |
 | `Enter` | Submit / Send |
